@@ -133,7 +133,7 @@ TEST_ACCURACIES = {
 # --- 3. UI Layout ---
 st.set_page_config(page_title="Agri-Smart Prediction", layout="wide")
 
-st.title("🌱 Smart Crop Recommendation System")
+st.title("🌱 Tamil Nadu Crop Recommendation System")
 st.markdown("Compare multiple Deep Learning algorithms to find the best crop for your soil conditions.")
 
 # Load Data
@@ -156,8 +156,11 @@ st.sidebar.markdown("---")
 ph = st.sidebar.slider("Soil pH", 4.0, 9.0, 6.5)
 temp = st.sidebar.slider("Temperature (°C)", 10.0, 45.0, 25.0)
 humidity = st.sidebar.slider("Humidity (%)", 20.0, 100.0, 60.0)
-water = st.sidebar.number_input("Water Available (mm)", 300, 3000, 1000)
-duration = st.sidebar.number_input("Growing Days Available", 60, 365, 120)
+
+# --- CHANGED: Converted number_input to slider ---
+water = st.sidebar.slider("Water Available (mm)", 300, 3000, 1000)
+duration = st.sidebar.slider("Growing Days Available", 60, 365, 120)
+# -------------------------------------------------
 
 # --- Main Inference Block ---
 if st.button("🚀 Analyze & Predict", use_container_width=True):
